@@ -25,15 +25,17 @@ function atualizarListaDeAmigos() {
     }
 }
 function sortearAmigo() {
-    let limiteSuperiorSorteio = amigos.length - 1
+    let limiteSuperiorSorteio = amigos.length 
     if (amigos.length != 0) {
-        let indexSorteado = parseInt(Math.random() * limiteSuperiorSorteio + 1)
+        let indexSorteado = Math.floor(Math.random() * limiteSuperiorSorteio)
         let lista = document.getElementById('listaAmigos')
         limparCampoLista()
-        console.log(indexSorteado)
-        console.log(amigos[indexSorteado])
+        console.log(`LIMITE SUPERIOR SORTEIO: ${limiteSuperiorSorteio}`)
+        console.log(`INDEX SORTEADO: ${indexSorteado}`)
+        console.log(`AMIGO SORTEADO: ${amigos[indexSorteado]}`)
         lista.innerHTML= amigos[indexSorteado]
     }
+    limparLista()
 }
 
 function limparCampo() {
@@ -43,4 +45,8 @@ function limparCampo() {
 function limparCampoLista() {
     let lista = document.querySelectorAll('li')
     return lista.innerHTML = ""
+}
+function limparLista() {
+    amigos = []
+    return amigos
 }
